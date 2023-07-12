@@ -11,7 +11,7 @@ export default function Home() {
 
     const onCreateTask = () => {
         if (taskName === '') return;
-        setTasksList((prevTasksList) => [...prevTasksList, { id: Date.now(), status: 'In progress', name: taskName }]);
+        setTasksList((prevTasksList) => [...prevTasksList, { id: Date.now(), status: 'Not done', name: taskName }]);
         setTaskName('');
     };
     const onDeleteTask = (taskId) => {
@@ -20,7 +20,7 @@ export default function Home() {
     const onToggleStatus = (taskId) => {
         setTasksList((prevTasksList) =>
             prevTasksList.map(task =>
-                task.id === taskId ? { ...task, status: task.status === 'Done' ? 'In progress' : 'Done' } : task
+                task.id === taskId ? { ...task, status: task.status === 'Done' ? 'Not done' : 'Done' } : task
             )
         );
     };
